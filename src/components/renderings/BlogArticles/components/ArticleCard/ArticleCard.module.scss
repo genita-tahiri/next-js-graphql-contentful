@@ -1,0 +1,57 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.card {
+  position: relative;
+  z-index: 2;
+  margin-bottom: $spacing-14;
+}
+
+.imageWrapper {
+  border-radius: $border-radius;
+  overflow: hidden;
+  height: 220px;
+  margin-bottom: $spacing-6;
+  transition: all 0.3s ease-in-out;
+
+  @include media("tablet-landscape") {
+    height: 340px;
+  }
+
+  span {
+    height: 100% !important;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.date {
+  color: var(--color-brand-primary);
+  margin-bottom: $spacing-1;
+}
+
+.title {
+  margin-bottom: $spacing-4;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    font-size: $font-size-8;
+    margin-right: $spacing-3;
+
+    [dir="rtl"] & {
+      margin-right: 0;
+      margin-left: $spacing-3;
+      transform: scaleX(-1);
+    }
+  }
+}

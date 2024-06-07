@@ -1,0 +1,86 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.section {
+  overflow: visible;
+
+  @include media("tablet-landscape") {
+    min-height: 550px;
+  }
+}
+
+.image {
+  margin-bottom: $spacing-3;
+}
+
+.mainImage {
+  min-height: 280px;
+  position: relative;
+  margin-bottom: $spacing-5;
+
+  @include media("tablet-landscape") {
+    min-height: 300px;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    height: 100%;
+    width: 150%;
+
+    [dir="rtl"] & {
+      left: 0;
+      right: -50%;
+    }
+  }
+
+  @include media("desktop-small") {
+    min-height: 400px;
+  }
+}
+
+.imageAlt {
+  overflow: hidden;
+
+  @include media("tablet-landscape") {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    height: 100%;
+    width: 150%;
+
+    [dir="rtl"] & {
+      right: 0;
+      left: -50%;
+    }
+  }
+}
+
+.row {
+  flex-direction: column-reverse !important;
+
+  @include media("tablet-landscape") {
+    min-height: 600px;
+    flex-direction: row !important;
+  }
+}
+
+.textCol {
+  display: flex;
+  align-items: flex-end;
+  margin-top: $spacing-6;
+
+  @include media("tablet-landscape") {
+    margin-bottom: 0;
+  }
+}
+
+.logoBG {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &.left {
+    right: initial;
+    left: 0;
+  }
+}

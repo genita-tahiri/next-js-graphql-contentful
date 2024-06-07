@@ -1,0 +1,47 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.input {
+  height: $input-height-mobile;
+  width: 100%;
+  font-size: $font-size-2;
+  padding: $spacing-2 $spacing-4;
+  color: var(--color-primary-dark);
+  border-radius: $border-radius-small;
+  background: var(--color-secondary-base-1);
+  border: 1px solid var(--color-secondary-light-grey);
+  @include font-primary;
+  line-height: normal;
+
+  @include media("tablet-landscape") {
+    font-size: $font-size-3;
+    height: $input-height;
+  }
+
+  &.error {
+    color: red;
+    border-color: red;
+
+    &::placeholder {
+      color: red;
+    }
+  }
+
+  &::placeholder {
+    color: var(--color-secondary-light-grey);
+  }
+
+  &:focus {
+    color: var(--color-primary-dark);
+
+    &::placeholder {
+      color: var(--color-secondary-light-grey);
+    }
+  }
+}
+
+.label {
+  display: block;
+  margin: $spacing-2 0;
+  color: var(--color-secondary-light-grey);
+}

@@ -1,0 +1,10 @@
+export { default as IconChevron } from "./icons/Chevron";
+export { default as IconMenu } from "./icons/Menu";
+export { default as IconClose } from "./icons/Close";
+export { default as IconFacebook } from "./icons/Facebook";
+export { default as IconInstagram } from "./icons/Instagram";
+export { default as IconTwitter } from "./icons/Twitter";
+export { default as IconCircularArrow } from "./icons/CircularArrow";
+export { default as IconIndicator } from "./icons/Indicator";
+export { default as IconQuote } from "./icons/Quote";
+export { default as IconLinkedIn } from "./icons/LinkedIn";

@@ -1,0 +1,18 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.section {
+  background: var(--color-secondary-medium-grey);
+  padding-top: $header-height + $spacing-15;
+  overflow: visible;
+}
+
+.title {
+  color: var(--color-primary-white);
+  z-index: 2;
+  position: relative;
+
+  @include media("tablet-landscape") {
+    margin-bottom: $spacing-25;
+  }
+}

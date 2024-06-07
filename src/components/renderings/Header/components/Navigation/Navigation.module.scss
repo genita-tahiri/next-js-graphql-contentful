@@ -1,0 +1,37 @@
+@import "styles/variables";
+
+.nav {
+  display: flex;
+}
+
+.link {
+  &:not(:last-of-type) {
+    margin-right: $spacing-10;
+
+    [dir="rtl"] & {
+      margin-right: 0;
+      margin-left: $spacing-10;
+    }
+  }
+}
+
+.menuBtn {
+  color: var(--color-primary-white);
+
+  .icon {
+    font-size: $font-size-8;
+  }
+}
+
+.languageSwitcher {
+  margin-left: $spacing-10;
+
+  p {
+    font-weight: 600;
+  }
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: $spacing-10;
+  }
+}

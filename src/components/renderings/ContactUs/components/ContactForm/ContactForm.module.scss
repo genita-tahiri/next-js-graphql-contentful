@@ -1,0 +1,22 @@
+@import "styles/variables";
+
+.input {
+  margin-bottom: $spacing-6;
+}
+
+.textarea {
+  margin-bottom: $spacing-12;
+}
+
+.formMessage {
+  margin-bottom: $spacing-4;
+}
+
+.icon {
+  max-width: 240px;
+  margin-bottom: $spacing-5;
+}
+
+.successWrapper {
+  margin-top: $spacing-30;
+}

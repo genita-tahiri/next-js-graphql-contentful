@@ -1,0 +1,64 @@
+@import "./mixins";
+
+/*
+  In order to create the derivative colors of the main colors,
+  which are based on a main color with different opacities set,
+  we need the individual RGB values of the main color. And in 
+  order to have a single source of truth of each color, we need
+  to employ SASS variables, to overcome the preprocessor and
+  native barrier. The SASS variables should NOT be used outside
+  of this file, and the file itself should only be imported to
+  the main index.scss stylesheet.
+*/
+
+:root {
+  // Primary brand colors
+  $color-primary-teal: #7bdeca;
+
+  --color-primary-teal: #{$color-primary-teal};
+  --color-brand-primary: var(--color-primary-teal);
+
+  $color-primary-teal-dark: #48c6ac;
+  --color-primary-teal-dark: #{$color-primary-teal-dark};
+  --color-brand-primary-dark: var(--color-primary-teal-dark);
+
+  $color-primary-black: #292929;
+  --color-primary-dark: #{$color-primary-black};
+
+  $color-secondary-lightgrey: #b9b9b9;
+  --color-secondary-light-grey: #{$color-secondary-lightgrey};
+
+  $color-secondary-darkgrey: #222222;
+  --color-secondary-dark-grey: #{$color-secondary-darkgrey};
+
+  $color-secondary-medium-grey: #666666;
+  --color-secondary-medium-grey: #{$color-secondary-medium-grey};
+
+  --color-primary-white: #ffffff;
+
+  --color-primary-black: #000000;
+
+  // Primary Fills
+  $color-primary-fill-1: #292929;
+
+  --color-primary-fill-1: #{$color-primary-fill-1};
+  --color-primary-fill-1--rgb: #{hexToRGB($color-primary-fill-1)};
+  --color-primary-fill-2: rgba(var(--color-primary-fill-1--rgb), 0.75);
+  --color-primary-fill-3: rgba(var(--color-primary-fill-1--rgb), 0.55);
+  --color-primary-fill-separator: rgba(var(--color-primary-fill-1--rgb), 0.15);
+
+  // Primary Base
+  $color-primary-base-1: #ffffff;
+
+  --color-primary-base-1: #{$color-primary-base-1};
+
+  // Negative Fills
+  --color-negative-fill-1: #{$color-primary-base-1};
+  --color-negative-fill-1--rgb: #{hexToRGB($color-primary-base-1)};
+  --color-negative-fill-2: rgba(var(--color-negative-fill-1--rgb), 0.75);
+  --color-negative-fill-3: rgba(var(--color-negative-fill-1--rgb), 0.5);
+  --color-negative-fill-separator: rgba(
+    var(--color-negative-fill-1--rgb),
+    0.15
+  );
+}

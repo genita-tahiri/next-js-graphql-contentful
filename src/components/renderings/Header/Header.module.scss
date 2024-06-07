@@ -1,0 +1,43 @@
+@import "styles/variables";
+
+.header {
+  width: 100%;
+  height: $header-height;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition-property: background-color, height, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: none;
+
+  &.scrolled {
+    @include media("tablet-landscape") {
+      background-color: var(--color-secondary-base-1);
+    }
+  }
+}
+
+.logoWrapper {
+  max-width: $spacing-30;
+}
+
+.container {
+  width: 100%;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+}

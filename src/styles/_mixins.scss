@@ -1,0 +1,121 @@
+@import "./breakpoints";
+
+/*
+    Mixin for media queries and breakpoints.
+    Preferably follow mobile-first, and only use the max breakpoints if necessary
+
+    The mixin can be used like this:
+
+    @include media("tablet-landscape") {
+        width: 50%;
+    }
+*/
+$breakpoints: (
+  "mobile-portrait": (
+    min-width: $screen-mobile-portrait,
+  ),
+  "mobile-portrait-max": (
+    max-width: $screen-mobile-landscape - 1px,
+  ),
+  "mobile-landscape": (
+    min-width: $screen-mobile-landscape,
+  ),
+  "mobile-landscape-max": (
+    max-width: $screen-tablet-portrait - 1px,
+  ),
+  "tablet-portrait": (
+    min-width: $screen-tablet-portrait,
+  ),
+  "tablet-portrait-max": (
+    max-width: $screen-tablet-landscape - 1px,
+  ),
+  "tablet-landscape": (
+    min-width: $screen-tablet-landscape,
+  ),
+  "tablet-landscape-max": (
+    max-width: $screen-desktop-small - 1px,
+  ),
+  "desktop-small": (
+    min-width: $screen-desktop-small,
+  ),
+  "desktop-medium": (
+    min-width: $screen-desktop-medium,
+  ),
+  "desktop-large": (
+    min-width: $screen-desktop-large,
+  ),
+);
+
+$orientations: (
+  "landscape": (
+    orientation: landscape,
+  ),
+);
+
+@mixin media($breakpoint, $orientation: "") {
+  @if map-has-key($map: $orientations, $key: $orientation) {
+    $orientation: and #{inspect(map-get($orientations, $orientation))};
+  }
+  @if map-has-key($map: $breakpoints, $key: $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint)) $orientation} {
+      @content;
+    }
+  } @else {
+    @warn "The specified breakpoint `#{$breakpoint}` does not exits. Available breakpoints are: #{map-keys($breakpoints)}";
+  }
+}
+
+/*
+  Font family mixins in order to make font swapping easier in
+  the future. Usually we would only set the font family in a
+  Typography component. However, since we have multiple font
+  families, and some atoms require different fonts. Therefore,
+  in order to have the actual font family only be set in a
+  single place.
+*/
+@mixin font-primary {
+  font-family: "GraphikArabicWeb", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+@mixin font-primary-wide {
+  font-family: "GraphikWideWeb", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+/*
+    PX to EM or REM converter mixin. Please just use the
+    pxToRem and pxToEm functions, and not the pxToRemOrRem.
+    They can take multiple values, if need be. Useful for
+    example when setting a padding short hand, like so:
+    padding: pxToRem(10 5 15 15);
+*/
+$baseFont: 16;
+
+@function pxToRemOrEm($pxValues, $unit: rem) {
+  $remValues: null;
+
+  @each $pxValue in $pxValues {
+    $remValues: append($remValues, $pxValue / $baseFont + $unit);
+  }
+
+  @return $remValues;
+}
+
+@function pxToRem($pxValues) {
+  @return pxToRemOrEm($pxValues, rem);
+}
+
+@function pxToEm($pxValues) {
+  @return pxToRemOrEm($pxValues, em);
+}
+
+/*
+  Convert HEX colors to RBG. Useful when there is a need
+  for using CSS variables and the native CSS RGBA function.
+*/
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

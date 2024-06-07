@@ -1,0 +1,179 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.heading {
+  @include font-primary;
+  white-space: break-spaces;
+
+  &.medium {
+    font-weight: 500;
+  }
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  &1 {
+    font-size: pxToRem(40);
+    font-weight: normal;
+    line-height: 1.2;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(72);
+    }
+
+    [dir="rtl"] & {
+      line-height: 1.5;
+      font-size: pxToRem(44);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(76);
+      }
+    }
+  }
+
+  &2 {
+    font-size: pxToRem(50);
+    font-weight: normal;
+    line-height: 1.1;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(64);
+    }
+
+    [dir="rtl"] & {
+      line-height: 1.4;
+      font-size: pxToRem(54);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(68);
+      }
+    }
+  }
+
+  &3 {
+    font-size: pxToRem(36);
+    font-weight: normal;
+    line-height: 1.3;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(40);
+    }
+
+    [dir="rtl"] & {
+      line-height: 1.6;
+      font-size: pxToRem(40);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(44);
+      }
+    }
+  }
+
+  &4 {
+    font-size: pxToRem(22);
+    font-weight: normal;
+    line-height: 1.3;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(28);
+    }
+
+    [dir="rtl"] & {
+      line-height: 1.5;
+      font-size: pxToRem(26);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(32);
+      }
+    }
+  }
+
+  &5 {
+    font-size: pxToRem(21);
+    font-weight: normal;
+    line-height: normal;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(24);
+    }
+
+    [dir="rtl"] & {
+      font-size: pxToRem(24);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(28);
+      }
+    }
+  }
+}
+
+.body {
+  @include font-primary;
+  font-weight: 400;
+  white-space: break-spaces;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
+
+  &.medium {
+    font-weight: 500;
+  }
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  &1 {
+    font-size: pxToRem(14);
+    line-height: 1.7;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(16);
+    }
+
+    [dir="rtl"] & {
+      font-size: pxToRem(18);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(20);
+      }
+    }
+  }
+
+  &2 {
+    font-size: pxToRem(14);
+    line-height: 1.5;
+
+    @include media("tablet-landscape") {
+      font-size: pxToRem(18);
+    }
+
+    [dir="rtl"] & {
+      font-size: pxToRem(18);
+
+      @include media("tablet-landscape") {
+        font-size: pxToRem(22);
+      }
+    }
+  }
+
+  &3 {
+    font-size: pxToRem(14);
+    line-height: 1.5;
+
+    [dir="rtl"] & {
+      font-size: pxToRem(18);
+    }
+  }
+
+  &4 {
+    font-size: pxToRem(13);
+    line-height: 1.3;
+
+    [dir="rtl"] & {
+      font-size: pxToRem(16);
+    }
+  }
+}
